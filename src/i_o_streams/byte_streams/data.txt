@@ -1,0 +1,1 @@
+To detect the Enter key (i.e. newline), you need to read the whole line using Scanner.nextLine() and then write each character of that line to the file. You can do something like this:
