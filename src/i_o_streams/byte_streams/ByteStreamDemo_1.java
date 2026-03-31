@@ -15,7 +15,7 @@ public class ByteStreamDemo_1 {
                 os.write(ch);
             }
         }catch (IOException e) {
-            System.out.println("Error while writing the file");
+            System.err.println("Error while writing the file");
             throw new RuntimeException(e);
         }
 
@@ -26,7 +26,7 @@ public class ByteStreamDemo_1 {
                 System.out.print((char)ch);
             }
         } catch (IOException e) {
-            System.out.println("Error while reading the file");
+            System.err.println("Error while reading the file");
             throw new RuntimeException(e);
         }
 

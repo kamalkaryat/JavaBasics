@@ -26,13 +26,13 @@ public class FileOperationsDemo_2 {
         deleteFileOrDir();
     }
     public static boolean fileAccessibility(){
-        Path path= Paths.get("src/i_o_streams/img.png");
+        Path path= Paths.get("src/i_o_streams/basics.png");
         return Files.isRegularFile(path) &
                 Files.isReadable(path) & Files.isExecutable(path);
     }
 
     public static boolean isSameFileDemo() throws IOException {
-        Path p1= Paths.get("src/i_o_streams/img.png");
+        Path p1= Paths.get("src/i_o_streams/basics.png");
         Path p2= Paths.get("src/i_o_streams/Readme.md");
         return Files.isSameFile(p1, p2);
     }

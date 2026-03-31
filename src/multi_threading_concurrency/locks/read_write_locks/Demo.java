@@ -1,0 +1,73 @@
+package multi_threading_concurrency.locks.read_write_locks;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+/**
+ * Read-Write lock allows multiple threads to read the resource concurrently
+ * until no thread is writing on it.
+ */
+public class Demo {
+    public static void main(String[] args) throws InterruptedException {
+        ReadWriteCounter counter= new ReadWriteCounter();
+
+        Runnable readTask= new Runnable() {
+            @Override
+            public void run() {
+                for(int i=0; i<10; i++){
+                    System.out.println(Thread.currentThread().getName()+" read: "+counter.getCounter());
+                }
+            }
+        };
+        Runnable writeTask= new Runnable() {
+            @Override
+            public void run() {
+                for (int i=0; i<10; i++) {
+                    counter.increment();
+                    System.out.println(Thread.currentThread().getName() + " incremented");
+                }
+            }
+        };
+
+        Thread t1= new Thread(writeTask, "t1");
+        Thread t2= new Thread(readTask, "t2");
+        Thread t3= new Thread(readTask, "t3");
+
+        t1.start();
+        t2.start();
+        t3.start();
+
+        t1.join();
+        t2.join();
+        t3.join();
+
+        System.out.println("Final Count: "+counter.getCounter());
+    }
+
+}
+
+class ReadWriteCounter{
+    private int count= 0;
+    private final ReadWriteLock lock= new ReentrantReadWriteLock();
+    private final Lock readLock= lock.readLock();
+    private final Lock writeLock= lock.writeLock();
+
+    public void increment(){
+        writeLock.lock();
+        try{
+            count++;
+        }finally {
+            writeLock.unlock();
+        }
+    }
+
+    public int getCounter(){
+        readLock.lock();
+        try {
+            return count;
+        }finally {
+            readLock.unlock();
+        }
+    }
+}

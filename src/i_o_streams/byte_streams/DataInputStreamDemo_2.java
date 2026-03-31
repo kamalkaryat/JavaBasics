@@ -9,7 +9,7 @@ import java.io.*;
  * NOTE: Detect EOF by catching the EOFException instead of testing for a invalid return value
  * Problem:
  * Use floating point to represent the currency which cannot represent values like 0.1
- * For which we have to use BigDecimal but it is an object which DataStream doesn't support
+ * For which we have to use BigDecimal, but it is an object which DataStream doesn't support
  */
 
 public class DataInputStreamDemo_2 {

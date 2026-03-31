@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 /**
  * Read data from a file using Scanner
- * Scanner is used
  */
 
 public class ScannerDemo {

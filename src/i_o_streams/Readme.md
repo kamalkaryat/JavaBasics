@@ -93,7 +93,7 @@ reader.close();
 can reconstruct the original object by doing a readObject().
 - In this image `a` is the actual object & `b,c,d,e` are the sub-objects required to construct `a`. Hence
 all are written in the outputStream.
-![img.png](img.png)
+![img.png](basics.png)
 
 ## NIO 2.0
 java.nio.file package
@@ -104,4 +104,3 @@ java.nio.file package
 - Absolute Path: JavaBasics/src/i_o_streams
 - Symbolic Links: special file that serves as a reference to another file
 - In Solaris OS Path follows (/home/joe/foo) & in Windows OS it follows(C:\home\joe\foo)
-- 

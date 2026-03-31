@@ -13,7 +13,6 @@ public class PrintWriterDemo_3 {
 
         System.out.println("File I/O Started");
         final String title= "PrintWriter Demo";
-
         try(
                 BufferedReader bufferedReader= new BufferedReader(
                         new FileReader("src/i_o_streams/char_streams/readFile1.txt"));
